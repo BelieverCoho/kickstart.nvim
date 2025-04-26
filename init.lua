@@ -68,7 +68,7 @@ Kickstart Guide:
 
   I have left several `:help X` comments throughout the init.lua
     These are hints about where to find more information about the relevant settings,
-    plugins or Neovim features used in Kickstart.
+  plugins or Neovim features used in Kickstart.
 
    NOTE: Look for lines like this
 
@@ -163,6 +163,8 @@ vim.opt.confirm = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Escape to file browser' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -521,7 +523,7 @@ require('lazy').setup({
           -- to define small helper and utility functions so you don't have to repeat yourself.
           --
           -- In this case, we create a function that lets us more easily define mappings specific
-          -- for LSP related items. It sets the mode, buffer and description for us each time.
+          -- for LSP related items. It sets the mode, buffer and description for us each time.im.keymap.set('n', '<leader>pv', vim.cmd.Ex)
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -761,6 +763,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
+        vim.ke,
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
